@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartaz de Procurado - Emanuel Rodrigues</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --paper: #f5e6d3;
+            --ink: #2a180f;
+            --accent: #8b4513;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #654321;
+            font-family: 'Courier New', monospace;
+        }
+
+        .poster-container {
+            perspective: 1000px;
+        }
+
+        .poster {
+            width: 500px;
+            height: 700px;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            position: relative;
+        }
+
+        .poster.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .front, .back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            background: var(--paper);
+            padding: 2rem;
+            border: 15px double var(--accent);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+        }
+
+        .back {
+            transform: rotateY(180deg);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 3px solid var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .wanted-text {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .photo-frame {
+            width: 200px;
+            height: 200px;
+            margin: 1rem auto;
+            border: 5px solid var(--ink);
+            padding: 5px;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: sepia(0.8) contrast(1.1);
+        }
+
+        .warning {
+            color: #8b0000;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 1rem 0;
+            text-transform: uppercase;
+        }
+
+        .details {
+            margin: 1rem 0;
+            padding: 1rem;
+        }
+
+        .affiliations {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .affiliations li {
+            margin: 0.5rem 0;
+        }
+
+        .specialties {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .specialty-icon {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .status {
+            text-align: center;
+            margin-top: 2rem;
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .back-content {
+            
+            height: 100%;
+        }
+
+        @media (max-width: 600px) {
+            .poster {
+                width: 90%;
+                height: auto;
+                min-height: 500px;
+            }
+            
+            .wanted-text {
+                font-size: 2rem;
+            }
+            
+            .photo-frame {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <div class="poster-container">
+        <div class="poster" onclick="this.classList.toggle('flipped')">
+            <!-- Frente do Cartaz -->
+            <div class="front">
+                <div class="header">
+                    <h1 class="wanted-text">Procurado</h1>
+                </div>
+                
+                <div class="photo-frame">
+                    <!-- ALTERE AQUI COM SUA FOTO -->
+                    <img src="Manel.jpg" alt="Emanuel Rodrigues" class="profile-img">
+                </div>
+
+                <div class="details">
+                    <p><strong>Afiliações:</strong></p>
+                    <ul class="affiliations">
+                        <li>
+                            <a href="https://github.com/RussoPhone" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/emanuel-rodrigues-teixeira-filho-4958b0358/" target="_blank">
+                                <i class="fab fa-linkedin"></i> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/mnel.rd/?next=%2F" target="_blank">
+                                <i class="fab fa-instagram"></i> Instagram
+                            </a>
+                        </li>
+                    </ul>
+
+                    <p><strong>Especialidades:</strong></p>
+                    <div class="specialties">
+                        <i class="fa-brands fa-html5 specialty-icon"></i>
+                        <i class="fa-brands fa-css3-alt specialty-icon"></i>
+                        <i class="fa-brands fa-js-square specialty-icon"></i>
+                        <i class="fa-brands fa-react specialty-icon"></i>
+                        <i class="fa-brands fa-node-js specialty-icon"></i>
+                        <i class="fab fa-java specialty-icon"></i>
+                        <i class="fab fa-python specialty-icon"></i>
+                    </div>
+                </div>
+
+                <div class="status">Vivo ou compilado</div>
+            </div>
+
+            
+            <div class="back">
+                <div class="back-content">
+                    <div class="header">
+                        <h1 class="wanted-text">Procura-se</h1>
+                    </div>
+
+                    <div class="details">
+                        <p>O Engenheiro de Software<br>
+                        <strong>Emanuel Rodrigues</strong><br>
+                        Residente de Teresina</p>
+
+                        <p>Capaz em análise de dados e criação de relatórios automatizados.<br>
+                        Experiente com C++, Python e Java.</p>
+
+                        <div class="warning">Cuidado!</div>
+
+                        <p>Foragido experiente em:<br>
+                        - Gestão de lojas<br>
+                        - Automatização de serviços<br>
+                        - Soluções alternativas para resolução de problemas práticos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+ 
+    </script>
+</body>
+</html>
